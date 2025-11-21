@@ -1,0 +1,50 @@
+# Code Genesis Configuration
+
+# Target repository path (default: current directory)
+repository:
+  path: "./"
+  ignore_patterns:
+    - "**/.git/**"
+    - "**/node_modules/**"
+    - "**/__pycache__/**"
+    - "**/*.pyc"
+    - "**/.venv/**"
+    - "**/venv/**"
+    - "**/.env"
+    - "**/dist/**"
+    - "**/build/**"
+
+# LLM Configuration
+llm:
+  provider: "openai"  # Options: openai, anthropic, google
+  model: "gpt-4-turbo-preview"
+  temperature: 0.7
+  max_tokens: 4000
+
+# Vector Database Configuration
+vector_db:
+  persist_directory: "./.genesis_index"
+  collection_name: "codebase_embeddings"
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+
+# Style Analysis Configuration
+style:
+  analyze_indentation: true
+  analyze_naming: true
+  analyze_comments: true
+  analyze_imports: true
+  analyze_docstrings: true
+
+# Code Generation Configuration
+generation:
+  auto_format: true
+  auto_lint: true
+  auto_test: true
+  test_framework: "pytest"  # Options: pytest, unittest, nose2
+
+# Self-Correction Configuration
+correction:
+  max_iterations: 3
+  enable_compiler_check: true
+  enable_linter_check: true
+
